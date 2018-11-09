@@ -6,6 +6,7 @@ from customized_error import *
 
 import subprocess
 
+
 class AdbWarnings:
     def __init__(self, content):
         self.subroot = Toplevel()

@@ -1,7 +1,10 @@
+# coding=utf-8
 
 import subprocess
 import time
 import os
+
+from adb_warnings import *
 
 # Commands
 ADB_COMMANDS = {
@@ -69,7 +72,7 @@ ADB_COMMANDS = {
 # Max time to wait
 TIME_OUT = 32
 # Min time to wait
-MIN_TIME_EXC = 8
+MIN_TIME_EXC = 1
 
 def avoid_cmd_time_out(cmd):
     # Avoid execution time out
@@ -91,30 +94,44 @@ def execute_command(cmd):
     # Execute commands in a subprocess
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-    # Set time out
-    # Leave a short interval first
-    time_start = time.time()
-    interval_exc = 0
-    while interval_exc < MIN_TIME_EXC and sp.poll() is None:
-        time.sleep(0.1)
-        interval_exc = time.time() - time_start
+    # Set storage for stdout and stderr
+    stdout_info = str('')
+    stderr_info = str('')
 
     # Exceed the MIN_TIME_EXC and consider that this command requires more time for IO or it has an instant IO
+    # time.sleep(MIN_TIME_EXC)
+
+    # Set time out
     if sp.poll() is None:
         time_begin = time.time()
-        stdout_info = str('')
 
         while sp.poll() is None:
-            line = sp.stdout.readline()
-            stdout_info = stdout_info + line
+            # Record stdout
+            line_out = sp.stdout.readline()
+            stdout_info = stdout_info + line_out
+
+            # Record stderr
+            line_err = sp.stderr.readline()
+            stderr_info = stderr_info + line_err
 
             # Calculate time
             interval = time.time() - time_begin
+
+            # Time_out settings
             if interval > TIME_OUT:
                 sp.terminate()
                 break
-            time.sleep(0.05)
-        return 0, stdout_info
+            time.sleep(0.01)
+
+        # Record stdout
+        line_out = sp.stdout.readline()
+        stdout_info = stdout_info + line_out
+
+        # Record stderr
+        line_err = sp.stderr.readline()
+        stderr_info = stderr_info + line_err
+
+        return 0, stdout_info + stderr_info + '\n'
     else:
         stdout_info, stderr_info = sp.communicate()
         res = str(stdout_info) + str(stderr_info) + '\n'

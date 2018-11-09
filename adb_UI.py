@@ -407,7 +407,7 @@ class AdbUI:
                                 lambda event: self._execute_command(argv=self.customized_command.get(), flag=False))
         self.command_entry.focus_force()
 
-    def _change_text_display(self, content):
+    def change_text_display(self, content):
         # Enable the user modifications
         self.text_display.config(state=NORMAL)
         # Display the content
@@ -423,7 +423,7 @@ class AdbUI:
 
         # Update parameters
         if self.parameters is None:
-            warnings = AdbWarnings('请输入%s个参数来实现测试命令!!!' %str(args))
+            warnings = AdbWarnings('请输入%s个参数来实现测试命令!!!' % str(args))
             self.root.wait_window(warnings.subroot)
         else:
             for idx in range(len(argv)):
@@ -439,18 +439,18 @@ class AdbUI:
         if flag is False:
             rtn_code, info_res = execute_command(argv)
             if rtn_code != 0:
-                raise CustomizedError('Incorrect adb shell command: %s' %argv)
+                raise CustomizedError('Incorrect adb shell command: %s' % argv)
             else:
-                self._change_text_display(info_res)
+                self.change_text_display(info_res)
         else:
             for idx in range(len(argv)):
                 command = str(argv[idx])
                 rtn_code, info_res = execute_command(command)
 
                 if rtn_code != 0:
-                    raise CustomizedError('Incorrect adb shell command: %s' %command)
+                    raise CustomizedError('Incorrect adb shell command: %s' % command)
                 else:
-                    self._change_text_display(info_res)
+                    self.change_text_display(info_res)
 
 if __name__ == '__main__':
     adb_test_UI = AdbUI()
