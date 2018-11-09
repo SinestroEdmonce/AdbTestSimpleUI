@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7a58a6a-62e8-42bc-be36-c03325b857ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdbTestUI.rar" beforeDir="false" afterPath="$PROJECT_DIR$/AdbTestUI.rar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adb_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adb_commnd.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_commnd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adb_warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_warnings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,13 +36,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="13797" />
+          <entry key="py" value="13798" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="13797" />
+          <entry key="Python" value="13798" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -75,11 +71,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/adb_commnd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="387">
+              <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
               <folding>
                 <element signature="e#1#18#0" expanded="true" />
-                <marker date="1541752210102" expanded="true" signature="2088:2198" ph="..." />
+                <marker date="1541752317958" expanded="true" signature="2087:2197" ph="..." />
               </folding>
             </state>
           </provider>
@@ -461,11 +457,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/adb_commnd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="387">
+          <caret line="131" column="44" lean-forward="true" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
           <folding>
             <element signature="e#1#18#0" expanded="true" />
-            <marker date="1541752210102" expanded="true" signature="2088:2198" ph="..." />
+            <marker date="1541752317958" expanded="true" signature="2087:2197" ph="..." />
           </folding>
         </state>
       </provider>

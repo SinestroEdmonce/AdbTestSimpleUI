@@ -70,7 +70,7 @@ ADB_COMMANDS = {
 }
 
 # Max time to wait
-TIME_OUT = 32
+TIME_OUT = 8
 # Min time to wait
 MIN_TIME_EXC = 1
 
