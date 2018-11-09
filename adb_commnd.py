@@ -70,9 +70,9 @@ ADB_COMMANDS = {
 }
 
 # Max time to wait
-TIME_OUT = 8
+TIME_OUT = 16
 # Min time to wait
-MIN_TIME_EXC = 1
+MIN_TIME_EXC = 2
 
 def avoid_cmd_time_out(cmd):
     # Avoid execution time out
@@ -102,17 +102,14 @@ def execute_command(cmd):
     # time.sleep(MIN_TIME_EXC)
 
     # Set time out
-    if sp.poll() is None:
+    if sp.poll() is None and cmd not in ['adb help']:
         time_begin = time.time()
+        terminated_flag = False
 
         while sp.poll() is None:
             # Record stdout
             line_out = sp.stdout.readline()
             stdout_info = stdout_info + line_out
-
-            # Record stderr
-            line_err = sp.stderr.readline()
-            stderr_info = stderr_info + line_err
 
             # Calculate time
             interval = time.time() - time_begin
@@ -120,16 +117,18 @@ def execute_command(cmd):
             # Time_out settings
             if interval > TIME_OUT:
                 sp.terminate()
+                terminated_flag = True
                 break
-            time.sleep(0.01)
+            time.sleep(0.1)
 
-        # Record stdout
-        line_out = sp.stdout.readline()
-        stdout_info = stdout_info + line_out
+        if terminated_flag == False:
+            # Record stdout
+            line_out = sp.stdout.readline()
+            stdout_info = stdout_info + line_out
 
-        # Record stderr
-        line_err = sp.stderr.readline()
-        stderr_info = stderr_info + line_err
+            # Record stderr
+            line_err = sp.stderr.readline()
+            stderr_info = stderr_info + line_err
 
         return 0, stdout_info + stderr_info + '\n'
     else:
