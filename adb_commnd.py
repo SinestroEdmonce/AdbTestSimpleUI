@@ -1,6 +1,7 @@
 
 import subprocess
 import time
+import os
 
 # Commands
 ADB_COMMANDS = {
@@ -66,8 +67,9 @@ ADB_COMMANDS = {
 }
 
 # Max time to wait
-TIME_OUT = 60
-
+TIME_OUT = 32
+# Min time to wait
+MIN_TIME_EXC = 8
 
 def avoid_cmd_time_out(cmd):
     # Avoid execution time out
@@ -80,13 +82,25 @@ def avoid_cmd_time_out(cmd):
 # Commands execution
 def execute_command(cmd):
     cmd = avoid_cmd_time_out(cmd)
+
+    # If cmd = adb shell, then open the COMMAND for WINDOWS
+    if cmd in ['adb shell']:
+        subprocess.Popen('cmd', shell=True)
+        return 0, 'Auto-open COMMAND for further adb shell testing.\n'
+
     # Execute commands in a subprocess
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
     # Set time out
     # Leave a short interval first
-    time.sleep(0.1)
-    if sp.poll() is not None:
+    time_start = time.time()
+    interval_exc = 0
+    while interval_exc < MIN_TIME_EXC and sp.poll() is None:
+        time.sleep(0.1)
+        interval_exc = time.time() - time_start
+
+    # Exceed the MIN_TIME_EXC and consider that this command requires more time for IO or it has an instant IO
+    if sp.poll() is None:
         time_begin = time.time()
         stdout_info = str('')
 
@@ -99,7 +113,7 @@ def execute_command(cmd):
             if interval > TIME_OUT:
                 sp.terminate()
                 break
-            time.sleep(0.1)
+            time.sleep(0.05)
         return 0, stdout_info
     else:
         stdout_info, stderr_info = sp.communicate()
