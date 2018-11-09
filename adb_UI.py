@@ -80,12 +80,10 @@ class AdbUI:
         self._set_command_entry(self.fram_bottom)
         self._set_text(self.fram_bottom)
 
-
     def _set_frame_top(self, root_container):
 
         # Top frame in main window
         self.fram_top = Frame(root_container)
-
 
     def _pack_frame(self, name):
 
@@ -129,6 +127,7 @@ class AdbUI:
                                       bd=7, fg='blue', font=('黑体', 15, 'bold'), relief=RAISED)
         self.left_button4end.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
 
+    '''You can change the UI location of those buttons below, by just change the sequence of button-created process'''
     def _set_right_button_col1(self, root_container):
         self.right_button4screencap = Button(root_container, text='截图',
                                              command=lambda: self._execute_command(argv=ADB_COMMANDS[2]),

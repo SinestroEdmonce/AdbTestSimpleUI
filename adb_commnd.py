@@ -101,7 +101,7 @@ def execute_command(cmd):
     # Exceed the MIN_TIME_EXC and consider that this command requires more time for IO or it has an instant IO
     # time.sleep(MIN_TIME_EXC)
 
-    # Set time out
+    # Set time out, except for command: adb help
     if sp.poll() is None and cmd not in ['adb help']:
         time_begin = time.time()
         terminated_flag = False
