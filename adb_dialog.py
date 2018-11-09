@@ -33,6 +33,10 @@ class AdbDialog:
         # Set entry
         self.argv_entry = [self._set_argv_entry(self.fram_vert[idx], idx) for idx in range(self.args)]
         self._pack_argv_entry()
+        # Bind <Return> to the entry, used for keyboard reflection
+        self.argv_entry[self.args-1].bind('<KeyPress-Return>',
+                                          lambda event: self._confirm())
+        self.argv_entry[self.args-1].focus_force()
 
         # Set button for confirm and cancel
         self.fram_last = self._set_frame_vertical(root_container)

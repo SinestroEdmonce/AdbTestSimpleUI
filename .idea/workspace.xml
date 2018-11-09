@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7a58a6a-62e8-42bc-be36-c03325b857ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/adb_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adb_commnd.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_commnd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adb_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adb_warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_warnings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="11545" />
+          <entry key="py" value="11577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="11545" />
+          <entry key="Python" value="11577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -54,17 +51,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/adb_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="388" column="8" selection-start-line="388" selection-start-column="8" selection-end-line="388" selection-end-column="8" />
+            <state relative-caret-position="311">
+              <caret line="406" column="107" selection-start-line="406" selection-start-column="107" selection-end-line="406" selection-end-column="107" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
                 <element signature="e#4149#9676#0" />
                 <element signature="e#9740#15369#0" />
                 <element signature="e#15433#21045#0" />
-                <marker date="1541733832181" expanded="true" signature="175:178" ph="..." />
-                <marker date="1541733832181" expanded="true" signature="190:25632" ph="..." />
-                <marker date="1541733832181" expanded="true" signature="22847:22852" ph="..." />
-                <marker date="1541733832181" expanded="true" signature="24936:24942" ph="..." />
+                <marker date="1541733838136" expanded="true" signature="175:178" ph="..." />
+                <marker date="1541733838136" expanded="true" signature="190:25624" ph="..." />
+                <marker date="1541733838136" expanded="true" signature="22839:22844" ph="..." />
+                <marker date="1541733838136" expanded="true" signature="24928:24934" ph="..." />
               </folding>
             </state>
           </provider>
@@ -98,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adb_dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="311">
+              <caret line="38" column="50" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
               </folding>
@@ -155,10 +152,10 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/adb_display.py" />
         <option value="$PROJECT_DIR$/customized_error.py" />
-        <option value="$PROJECT_DIR$/adb_dialog.py" />
         <option value="$PROJECT_DIR$/adb_warnings.py" />
         <option value="$PROJECT_DIR$/adb_commnd.py" />
         <option value="$PROJECT_DIR$/adb_UI.py" />
+        <option value="$PROJECT_DIR$/adb_dialog.py" />
       </list>
     </option>
   </component>
@@ -367,19 +364,29 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/adb_commnd.py</url>
           <line>96</line>
           <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/adb_dialog.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -390,16 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adb_dialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#16#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,19 +421,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/adb_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="38" column="50" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+          <folding>
+            <element signature="e#16#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/adb_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="388" column="8" selection-start-line="388" selection-start-column="8" selection-end-line="388" selection-end-column="8" />
+        <state relative-caret-position="311">
+          <caret line="406" column="107" selection-start-line="406" selection-start-column="107" selection-end-line="406" selection-end-column="107" />
           <folding>
             <element signature="e#16#37#0" expanded="true" />
             <element signature="e#4149#9676#0" />
             <element signature="e#9740#15369#0" />
             <element signature="e#15433#21045#0" />
-            <marker date="1541733832181" expanded="true" signature="175:178" ph="..." />
-            <marker date="1541733832181" expanded="true" signature="190:25632" ph="..." />
-            <marker date="1541733832181" expanded="true" signature="22847:22852" ph="..." />
-            <marker date="1541733832181" expanded="true" signature="24936:24942" ph="..." />
+            <marker date="1541733838136" expanded="true" signature="175:178" ph="..." />
+            <marker date="1541733838136" expanded="true" signature="190:25624" ph="..." />
+            <marker date="1541733838136" expanded="true" signature="22839:22844" ph="..." />
+            <marker date="1541733838136" expanded="true" signature="24928:24934" ph="..." />
           </folding>
         </state>
       </provider>
