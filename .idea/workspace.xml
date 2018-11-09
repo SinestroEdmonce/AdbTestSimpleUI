@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a58a6a-62e8-42bc-be36-c03325b857ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/adb_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/adb_dialog.py" afterDir="false" />
-    </list>
+    <list default="true" id="a7a58a6a-62e8-42bc-be36-c03325b857ef" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +12,7 @@
     <session id="1483857837">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -51,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/adb_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="406" column="107" selection-start-line="406" selection-start-column="107" selection-end-line="406" selection-end-column="107" />
+            <state relative-caret-position="720">
+              <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
                 <element signature="e#4149#9676#0" />
@@ -336,14 +334,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5119306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31995663" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31995663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -433,8 +430,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/adb_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="406" column="107" selection-start-line="406" selection-start-column="107" selection-end-line="406" selection-end-column="107" />
+        <state relative-caret-position="720">
+          <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
           <folding>
             <element signature="e#16#37#0" expanded="true" />
             <element signature="e#4149#9676#0" />
