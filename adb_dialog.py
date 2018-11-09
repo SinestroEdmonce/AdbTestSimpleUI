@@ -10,6 +10,7 @@ class AdbDialog:
     def __init__(self, args):
         self.subroot = Toplevel()
         self.subroot.title('参数设置')
+        self.subroot.resizable(width=False, height=False)
 
         # args: number of Input
         # argv: storage for args

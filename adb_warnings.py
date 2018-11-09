@@ -10,6 +10,7 @@ class AdbWarnings:
     def __init__(self, content):
         self.subroot = Toplevel()
         self.subroot.title('警告')
+        self.subroot.resizable(width=False, height=False)
 
         # Warning UI settings
         self._set_warning_UI(self.subroot, content)

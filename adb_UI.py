@@ -19,7 +19,7 @@ class AdbUI:
         self.root = Tk()
 
         self.root.title('Adb调试工具')
-        self.root.resizable(width=True,height=False)
+        self.root.resizable(width=False,height=False)
         self._set_mainloop()
 
     def _set_mainloop(self):
@@ -370,7 +370,7 @@ class AdbUI:
         # Text horizontal scroll
         self.text_display_hs = Scrollbar(root_container, orient=HORIZONTAL)
         # Set scroll, without wrapping
-        self.text_display = Text(root_container, height=15, yscrollcommand=self.text_display_vs.set,
+        self.text_display = Text(root_container, height=24, yscrollcommand=self.text_display_vs.set,
                                  xscrollcommand=self.text_display_hs.set, wrap=None)
         # Scrolled events happen
         self.text_display_vs.config(command=self.text_display.yview)

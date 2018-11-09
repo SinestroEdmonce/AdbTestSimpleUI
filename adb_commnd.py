@@ -72,7 +72,7 @@ TIME_OUT = 60
 def avoid_cmd_time_out(cmd):
     # Avoid execution time out
     if cmd in ['adb logcat']:
-        cmd = cmd + ' -t 100'
+        cmd = cmd + ' -t 210'
 
     return cmd
 
@@ -84,13 +84,15 @@ def execute_command(cmd):
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
     # Set time out
-    if cmd in ['adb shell top', 'adb shell top -m 6', 'adb bugreport']:
+    # Leave a short interval first
+    time.sleep(0.1)
+    if sp.poll() is not None:
         time_begin = time.time()
-        stdoutinfo = str('')
+        stdout_info = str('')
 
         while sp.poll() is None:
             line = sp.stdout.readline()
-            stdoutinfo = stdoutinfo + line
+            stdout_info = stdout_info + line
 
             # Calculate time
             interval = time.time() - time_begin
@@ -98,8 +100,8 @@ def execute_command(cmd):
                 sp.terminate()
                 break
             time.sleep(0.1)
-        return 0, stdoutinfo
+        return 0, stdout_info
     else:
-        stdoutinfo, stderrinfo = sp.communicate()
-        res = str(stdoutinfo) + str(stderrinfo) + '\n'
+        stdout_info, stderr_info = sp.communicate()
+        res = str(stdout_info) + str(stderr_info) + '\n'
         return sp.returncode, res
