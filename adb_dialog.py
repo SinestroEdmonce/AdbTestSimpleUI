@@ -15,6 +15,7 @@ class AdbDialog:
         # argv: storage for args
         self.args = args
         self.argv = []
+        self.user_info = None
 
         # Dialog UI settings
         self._set_dialog_UI(self.subroot)

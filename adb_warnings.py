@@ -31,9 +31,9 @@ class AdbWarnings:
         return Label(root_container, text=str(content), fg='red', font=('宋体', 10, 'bold'))
 
     def _pack_frame(self, fram):
-        fram.pack(fill=BOTH, expand=YES, side=TOP, padx=5)
+        fram.pack(fill=BOTH, expand=YES, side=TOP, padx=10, pady=10)
 
     def _pack_label(self, label):
-        label.pack(fill=BOTH, expand=YES, side=LEFT, padx=3)
+        label.pack(fill=BOTH, expand=YES, side=LEFT, padx=5, pady=10)
 
 

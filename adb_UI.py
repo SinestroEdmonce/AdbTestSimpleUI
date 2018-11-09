@@ -20,7 +20,6 @@ class AdbUI:
 
         self.root.title('Adb调试工具')
         self.root.resizable(width=True,height=False)
-
         self._set_mainloop()
 
     def _set_mainloop(self):
@@ -117,6 +116,12 @@ class AdbUI:
                                         command=lambda: self._execute_command(argv=ADB_COMMANDS[0]),
                                         bd=7, fg='blue',font=('黑体', 15, 'bold'), relief=RAISED)
         self.left_button4start.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
+
+        # Button for obtaining the root
+        self.left_button4root = Button(root_container, text='获取Root',
+                                      command=lambda: self._execute_command(argv=ADB_COMMANDS[47]),
+                                      bd=7, fg='blue', font=('黑体', 15, 'bold'), relief=RAISED)
+        self.left_button4root.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
 
         # Button for finishing the test
         self.left_button4end = Button(root_container, text='结束测试',
@@ -338,12 +343,12 @@ class AdbUI:
         self.right_button4screencap.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
 
         self.right_button4screencap = Button(root_container, text='查看bug报告',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[45]),
+                                             command=lambda: self._ask_user_info(args=1, argv=ADB_COMMANDS[45]),
                                              bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
         self.right_button4screencap.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
 
         self.right_button4screencap = Button(root_container, text='获取设备名称',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[56]),
+                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[46]),
                                              bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
         self.right_button4screencap.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
 
@@ -389,12 +394,18 @@ class AdbUI:
         self.customized_command = StringVar('')
 
         self.button4confirm = Button(self.fram_entry, text="确认",
-                                     command=lambda : self._execute_command(argv=self.customized_command.get(), flag=False),
+                                     command=lambda: self._execute_command(argv=self.customized_command.get(),
+                                                                           flag=False),
                                      bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
         self.button4confirm.pack(fill=X, side=RIGHT)
 
         self.command_entry = Entry(self.fram_entry, textvariable=self.customized_command)
         self.command_entry.pack(side=BOTTOM, expand=YES, fill=X)
+
+        # Bind <Return> to the entry, used for keyboard reflection
+        self.command_entry.bind('<KeyPress-Return>',
+                                lambda event: self._execute_command(argv=self.customized_command.get(), flag=False))
+        self.command_entry.focus_force()
 
     def _change_text_display(self, content):
         # Enable the user modifications

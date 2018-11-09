@@ -4,7 +4,8 @@ import time
 
 # Commands
 ADB_COMMANDS = {
-    0: ['adb start-server'],
+    0: ['adb start-server',
+        'adb devices'],
     1: ['adb kill-server'],
     2: ['adb shell screencap -p /sdcard/screen.png',
         'adb pull /sdcard/screen.png d:/',
@@ -57,20 +58,33 @@ ADB_COMMANDS = {
     42: ['adb shell cat $1'],
     43: ['adb shell cat /data/misc/wifi/*.conf'],
     44: ['adb logcat -c'],
-    45: ['adb bugreport'],
+    45: ['adb bugreport $1'],
     46: ['adb shell cat /system/build.prop'],
+    47: ['adb devices',
+         'adb root',
+         'adb remount']
 }
 
 # Max time to wait
 TIME_OUT = 60
 
+
+def avoid_cmd_time_out(cmd):
+    # Avoid execution time out
+    if cmd in ['adb logcat']:
+        cmd = cmd + ' -t 100'
+
+    return cmd
+
+
 # Commands execution
 def execute_command(cmd):
+    cmd = avoid_cmd_time_out(cmd)
     # Execute commands in a subprocess
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
     # Set time out
-    if cmd in ['adb shell top', 'adb shell top -m 6']:
+    if cmd in ['adb shell top', 'adb shell top -m 6', 'adb bugreport']:
         time_begin = time.time()
         stdoutinfo = str('')
 
