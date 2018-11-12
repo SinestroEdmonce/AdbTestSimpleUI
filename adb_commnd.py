@@ -105,7 +105,8 @@ def execute_command(wins, cmd):
                 if event.key == pygame.K_q:
                     pygame.quit()
                     sp.terminate()
-                    return 0, 'CTRL-C Happening...\n'
+                    wins.change_text_display('CTRL-C Interrupt Happening...', interrupt=True)
+                    return 0, '\n'
         pygame.display.update()
 
     # Cease listening

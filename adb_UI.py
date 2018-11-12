@@ -370,7 +370,8 @@ class AdbUI:
         self.text_display_hs = Scrollbar(root_container, orient=HORIZONTAL)
         # Set scroll, without wrapping
         self.text_display = Text(root_container, height=24, yscrollcommand=self.text_display_vs.set,
-                                 xscrollcommand=self.text_display_hs.set, wrap=None)
+                                 xscrollcommand=self.text_display_hs.set, bg='black', foreground='white',
+                                 font=('Arial', 10), wrap=None)
         # Scrolled events happen
         self.text_display_vs.config(command=self.text_display.yview)
         self.text_display_hs.config(command=self.text_display.xview)
@@ -406,11 +407,15 @@ class AdbUI:
                                 lambda event: self._execute_command(argv=self.customized_command.get(), flag=False))
         self.command_entry.focus_force()
 
-    def change_text_display(self, content):
+    def change_text_display(self, content, interrupt=False):
         # Enable the user modifications
         self.text_display.config(state=NORMAL)
         # Display the content
-        self.text_display.insert(END, content)
+        if interrupt is True:
+            self.text_display.tag_config('intrpt', foreground='red', font=('Arial', 10, 'bold'))
+            self.text_display.insert(END, content, 'intrpt')
+        else:
+            self.text_display.insert(END, content)
         # Instant update
         self.text_display.see(END)
         self.text_display.update()
