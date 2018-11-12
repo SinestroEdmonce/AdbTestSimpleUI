@@ -411,6 +411,9 @@ class AdbUI:
         self.text_display.config(state=NORMAL)
         # Display the content
         self.text_display.insert(END, content)
+        # Instant update
+        self.text_display.see(END)
+        self.text_display.update()
         # Unable the user modifications
         self.text_display.config(state=DISABLED)
 
@@ -436,7 +439,7 @@ class AdbUI:
     def _execute_command(self, argv, flag=True):
         # Execute commands
         if flag is False:
-            rtn_code, info_res = execute_command(argv)
+            rtn_code, info_res = execute_command(self, argv)
             if rtn_code != 0:
                 raise CustomizedError('Incorrect adb shell command: %s' % argv)
             else:
@@ -444,7 +447,7 @@ class AdbUI:
         else:
             for idx in range(len(argv)):
                 command = str(argv[idx])
-                rtn_code, info_res = execute_command(command)
+                rtn_code, info_res = execute_command(self, command)
 
                 if rtn_code != 0:
                     raise CustomizedError('Incorrect adb shell command: %s' % command)

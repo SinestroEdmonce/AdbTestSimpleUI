@@ -3,8 +3,13 @@
 import subprocess
 import time
 import os
+import sys
+
+import pygame
+from pygame.locals import *
 
 from adb_warnings import *
+from adb_UI import *
 
 # Commands
 ADB_COMMANDS = {
@@ -74,18 +79,8 @@ TIME_OUT = 16
 # Min time to wait
 MIN_TIME_EXC = 2
 
-def avoid_cmd_time_out(cmd):
-    # Avoid execution time out
-    if cmd in ['adb logcat']:
-        cmd = cmd + ' -t 210'
-
-    return cmd
-
-
 # Commands execution
-def execute_command(cmd):
-    cmd = avoid_cmd_time_out(cmd)
-
+def execute_command(wins, cmd):
     # If cmd = adb shell, then open the COMMAND for WINDOWS
     if cmd in ['adb shell']:
         subprocess.Popen('cmd', shell=True)
@@ -94,44 +89,27 @@ def execute_command(cmd):
     # Execute commands in a subprocess
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-    # Set storage for stdout and stderr
-    stdout_info = str('')
-    stderr_info = str('')
-
     # Exceed the MIN_TIME_EXC and consider that this command requires more time for IO or it has an instant IO
     # time.sleep(MIN_TIME_EXC)
+    # wins.change_text_display('正在截获命令行实时输出,请等待...\n')
 
-    # Set time out, except for command: adb help
-    if sp.poll() is None and cmd not in ['adb help']:
-        time_begin = time.time()
-        terminated_flag = False
+    # Initialize the keyboard event listening
+    pygame.init()
+    pygame.display.set_mode((1, 1))
+    # Relocate the standard output and error information
+    while sp.poll() is None and cmd not in ['adb help']:  # None: executing. Specific process for 'adb help'
+        stdout_info = str(sp.stdout.readline()).strip() + '\n'
+        wins.change_text_display(stdout_info)
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    sp.terminate()
+                    return 0, 'CTRL-C Happening...\n'
+        pygame.display.update()
 
-        while sp.poll() is None:
-            # Record stdout
-            line_out = sp.stdout.readline()
-            stdout_info = stdout_info + line_out
-
-            # Calculate time
-            interval = time.time() - time_begin
-
-            # Time_out settings
-            if interval > TIME_OUT:
-                sp.terminate()
-                terminated_flag = True
-                break
-            time.sleep(0.1)
-
-        if terminated_flag == False:
-            # Record stdout
-            line_out = sp.stdout.readline()
-            stdout_info = stdout_info + line_out
-
-            # Record stderr
-            line_err = sp.stderr.readline()
-            stderr_info = stderr_info + line_err
-
-        return 0, stdout_info + stderr_info + '\n'
-    else:
-        stdout_info, stderr_info = sp.communicate()
-        res = str(stdout_info) + str(stderr_info) + '\n'
-        return sp.returncode, res
+    # Cease listening
+    pygame.quit()
+    stdout_info, stderr_info = sp.communicate()
+    res = str(stdout_info) + str(stderr_info) + '\n'
+    return sp.returncode, res
