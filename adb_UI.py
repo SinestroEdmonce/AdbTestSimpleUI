@@ -446,6 +446,7 @@ class AdbUI:
         if flag is False:
             rtn_code, info_res = execute_command(self, argv)
             if rtn_code != 0:
+                self.change_text_display('Warning: Command '+ "'" + str(argv) + "'" + ' failed.', interrupt=False)
                 raise CustomizedError('Incorrect adb shell command: %s' % argv)
             else:
                 self.change_text_display(info_res)
@@ -453,8 +454,8 @@ class AdbUI:
             for idx in range(len(argv)):
                 command = str(argv[idx])
                 rtn_code, info_res = execute_command(self, command)
-
                 if rtn_code != 0:
+                    self.change_text_display('Warning: Command ' + "'" + str(argv) + "'" + ' failed.', interrupt=False)
                     raise CustomizedError('Incorrect adb shell command: %s' % command)
                 else:
                     self.change_text_display(info_res)
