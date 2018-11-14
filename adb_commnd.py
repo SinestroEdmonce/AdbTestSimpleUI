@@ -91,7 +91,6 @@ def execute_command(wins, cmd):
 
     # Exceed the MIN_TIME_EXC and consider that this command requires more time for IO or it has an instant IO
     # time.sleep(MIN_TIME_EXC)
-    # wins.change_text_display('正在截获命令行实时输出,请等待...\n')
 
     # Initialize the keyboard event listening
     pygame.init()
@@ -103,9 +102,9 @@ def execute_command(wins, cmd):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                    pygame.quit()
                     sp.terminate()
                     wins.change_text_display('CTRL-C Interrupt Happening...', interrupt=True)
+                    pygame.quit()
                     return 0, '\n'
         pygame.display.update()
 
