@@ -8,9 +8,10 @@ sys.path.append(r'../')
 from customized_error import *
 
 import subprocess
-
+import time
 import traceback
 
+MIN_TIME_INTERVAL=2
 
 class AppTestUI:
 
@@ -213,17 +214,30 @@ class AppTestUI:
 
             for epoch in range(self.epochs.get()):
                 # Execute commands in a subprocess
-                sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                sp_open = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+                time.sleep(self.time_wait_opened.get()-MIN_TIME_INTERVAL
+                           if self.time_wait_opened.get()-MIN_TIME_INTERVAL > 0 else 1)
+
+                # Relocate the standard output and error information
+                if sp_open.poll() is None:  # None: executing.
+                    sp_open.terminate()
+
+                stdout_info, stderr_info = sp_open.communicate()
+                res = '第%s轮: %s应用启动测试' % (str(epoch + 1), str(self.app.get())) + '\n' \
+                      + (stdout_info) + str(stderr_info) + '\n'
+                self._change_text_display(res)
 
                 # Exceed the OPENED_TIME_2_WAIT and consider that this command requires more time for App to start
                 time.sleep(self.time_wait_opened.get())
 
-                # Relocate the standard output and error information
-                if sp.poll() is None:  # None: executing.
-                   sp.terminate()
+                # Execute commands in a subprocess
+                sp_close = subprocess.Popen(str('adb shell input keyevent 4'), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-                stdout_info, stderr_info = sp.communicate()
-                res = '第%s轮: %s应用启动测试' % (str(epoch+1), str(self.app.get())) + '\n' \
+                # Exceed the OPENED_TIME_2_WAIT and consider that this command requires more time for App to start
+                time.sleep(self.time_wait_closed.get())
+
+                stdout_info, stderr_info = sp_close.communicate()
+                res = '第%s轮: %s应用关闭' % (str(epoch + 1), str(self.app.get())) + '\n' \
                       + (stdout_info) + str(stderr_info) + '\n'
                 self._change_text_display(res)
         else:
