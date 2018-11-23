@@ -1,0 +1,6 @@
+com.angrymobgames.muffinknight/com.tapjoy.TapjoyPluginActivity
+com.nibiru.studio.mrdemo.pro/x.core.XBaseXRActivity
+com.nibiru.studio.mrdemo/x.core.XBaseXRActivity
+com.nibiru.studio.demo2/x.core.XBaseXRActivity
+com.nibiru.ar.unitydemo.basic/com.nibiru.lib.xr.unity.NibiruXRUnityActivity
+com.nibiru.ar.unitydemo/com.nibiru.lib.xr.unity.NibiruXRUnityActivity
