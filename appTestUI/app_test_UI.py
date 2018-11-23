@@ -111,63 +111,56 @@ class AppTestUI:
 
         # Set drop-down list
         self.app = StringVar()
-        self.row1_combobox4apps = ttk.Combobox(root_container,textvariable=app)
-        self.row1_combobox4apps['values'] = (1, 2, 4, 42, 100)
+        self.row1_combobox4apps = ttk.Combobox(root_container, textvariable=self.app)
+        self.row1_combobox4apps['values'] = self.app_names
         # Set default value displayed in drop-down list
         self.row1_combobox4apps.current(0)
 
-
-        self.row1_combobox4apps.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+        self.row1_combobox4apps.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
     def _set_row2(self, root_container):
         self.row2_label4_open_wait = Label(root_container, text='App开启后等待时间(s)',
-                                             command=lambda: self._ask_user_info(args=1, argv=ADB_COMMANDS[18]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row2_label4_open_wait.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+                                           bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
+        self.row2_label4_open_wait.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
-        self.row1_entry4_open_wait = Button(root_container, text='App选项',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[2]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row1_entry4_open_wait.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+        self.time_wait_opened = StringVar()
+        self.row1_entry4_open_wait = Entry(root_container, textvariable=self.time_wait_opened)
+        self.row1_entry4_open_wait.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
     def _set_row3(self, root_container):
         self.row3_label4_close_wait = Label(root_container, text='App关闭后等待时间(s)',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row3_label4_close_wait.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+                                            bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
+        self.row3_label4_close_wait.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
-        self.row3_entry4_close_wait = Button(root_container, text='将system分区重新挂载为可读写分区',
-                                              command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                              bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row3_entry4_close_wait.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+        self.time_wait_closed = StringVar()
+        self.row3_entry4_close_wait = Entry(root_container, textvariable=self.time_wait_opened)
+        self.row3_entry4_close_wait.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
     def _set_row4(self, root_container):
         self.row4_label4epoch = Label(root_container, text='App启动总轮数(次)',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row4_label4epoch.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+                                      bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
+        self.row4_label4epoch.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
-        self.row4_entry4epoch = Button(root_container, text='将system分区重新挂载为可读写分区',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row4_entry4epoch.pack(side=LEFT, anchor=CENTER, fill=BOTH, expand=YES)
+        self.epochs = StringVar()
+        self.row4_entry4epoch = Entry(root_container, textvariable=self.epochs)
+        self.row4_entry4epoch.pack(side=LEFT, padx=2, pady=2, fill=BOTH, expand=YES)
 
     def _set_row5(self, root_container):
         self.row5_button4start = Button(root_container, text='开始测试App启动情况',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row5_button4start.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
+                                        command=lambda: self._execute_command(True),
+                                        bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
+        self.row5_button4start.pack(side=TOP, anchor=CENTER, padx=2, pady=2, fill=BOTH, expand=YES)
 
         # Bind <Return> to the entry, used for keyboard reflection
         self.row5_button4start.bind('<KeyPress-Return>',
-                                lambda event: self._execute_command(argv=self.customized_command.get(), flag=False))
+                                    lambda event: self._execute_command())
         self.row5_button4start.focus_force()
 
     def _set_row6(self, root_container):
         self.row6_button4quit = Button(root_container, text='结束并退出App',
-                                             command=lambda: self._execute_command(argv=ADB_COMMANDS[31]),
-                                             bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
-        self.row6_button4quit.pack(side=TOP, anchor=CENTER, fill=BOTH, expand=YES)
+                                       command=lambda: self._execute_command(False),
+                                       bd=3, font=('宋体', 10, 'bold'), relief=RAISED)
+        self.row6_button4quit.pack(side=TOP, anchor=CENTER, padx=2, pady=2, fill=BOTH, expand=YES)
 
     def _set_text(self, root_container):
         # Text vertical scroll
@@ -175,7 +168,7 @@ class AppTestUI:
         # Text horizontal scroll
         self.text_display_hs = Scrollbar(root_container, orient=HORIZONTAL)
         # Set scroll, without wrapping
-        self.text_display = Text(root_container, height=24, yscrollcommand=self.text_display_vs.set,
+        self.text_display = Text(root_container, yscrollcommand=self.text_display_vs.set,
                                  xscrollcommand=self.text_display_hs.set, bg='black', foreground='white',
                                  font=('Arial', 10), wrap=None)
         # Scrolled events happen
@@ -183,45 +176,62 @@ class AppTestUI:
         self.text_display_hs.config(command=self.text_display.xview)
 
         # Initialized text display
-        self.text_display.insert(END, '请点击命令或输入相关调试命令\n')
+        self.text_display.insert(END, '请点击命令开始对应用启动进行测试...\n')
 
         # Layout
-        self.text_display_vs.pack(fill=Y, expand=NO, side=RIGHT, anchor=N)
-        self.text_display_hs.pack(fill=X, expand=NO, side=BOTTOM, anchor=N)
-        self.text_display.pack(fill=BOTH, expand=YES, side=LEFT)
+        self.text_display_vs.pack(fill=Y, expand=YES, padx=1, pady=1, side=RIGHT, anchor=N)
+        self.text_display_hs.pack(fill=X, expand=YES, padx=1, pady=1, side=BOTTOM, anchor=N)
+        self.text_display.pack(fill=BOTH, expand=YES, padx=1, pady=1, side=LEFT)
 
         # Unable the user modifications
         self.text_display.config(state=DISABLED)
 
-    def change_text_display(self, content, interrupt=False):
+    def _change_text_display(self, content, interrupt=False):
         # Enable the user modifications
         self.text_display.config(state=NORMAL)
          # Display the content
-        if interrupt is True:
-            self.text_display.tag_config('intrpt', foreground='red', font=('Arial', 10, 'bold'))
-            self.text_display.insert(END, content, 'intrpt')
-        else:
-            self.text_display.insert(END, content)
+        self.text_display.insert(END, content)
         # Instant update
         self.text_display.see(END)
         self.text_display.update()
         # Unable the user modifications
         self.text_display.config(state=DISABLED)
 
-    def _execute_command(self, cmd):
-        # Execute commands in a subprocess
-        sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    def _execute_command(self, flag=True):
+        if flag is True:
+            cmd = str('adb shell am start -n ') + str(self.app.get())
 
-        # Exceed the OPENED_TIME_2_WAIT and consider that this command requires more time for App to start
-        time.sleep(self.opened_time2wait)
+            for epoch in range(int(str(self.epochs.get()))):
+                # Execute commands in a subprocess
+                sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-        # Relocate the standard output and error information
-        if sp.poll() is None:  # None: executing.
-           sp.terminate()
+                # Exceed the OPENED_TIME_2_WAIT and consider that this command requires more time for App to start
+                time.sleep(int(str(self.time_wait_opened.get())))
 
-        stdout_info, stderr_info = sp.communicate()
-        res = str(stdout_info) + str(stderr_info) + '\n'
-        return sp.returncode, res
+                # Relocate the standard output and error information
+                if sp.poll() is None:  # None: executing.
+                   sp.terminate()
+
+                stdout_info, stderr_info = sp.communicate()
+                res = '第%s轮: %s应用启动测试' % (str(epoch), str(self.app.get())) + '\n' \
+                      + (stdout_info) + str(stderr_info) + '\n'
+                self._change_text_display(res)
+        else:
+            cmd = str('adb shell input keyevent 4')
+            # Execute commands in a subprocess
+            sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
+            # Exceed the OPENED_TIME_2_WAIT and consider that this command requires more time for App to start
+            time.sleep(int(str(self.time_wait_closed.get())))
+
+            # Relocate the standard output and error information
+            if sp.poll() is None:  # None: executing.
+                sp.terminate()
+
+            stdout_info, stderr_info = sp.communicate()
+            res = '%s应用已被关闭' % str(self.app.get()) + '\n' \
+                  + str(stdout_info) + str(stderr_info) + '\n'
+            self._change_text_display(res)
 
 if __name__ == '__main__':
     app_test_UI = AppTestUI()
