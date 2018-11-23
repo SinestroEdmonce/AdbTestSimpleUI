@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7a58a6a-62e8-42bc-be36-c03325b857ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appTestUI/AppNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/appTestUI/AppNames.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appTestUI/app_test_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/appTestUI/app_test_UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appTestUI/app_test_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +28,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="10" />
+          <entry key="py" value="11" />
           <entry key="spec" value="1" />
           <entry key="txt" value="1" />
         </counts>
@@ -37,20 +36,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="6" />
-          <entry key="py" value="16135" />
+          <entry key="dummy" value="18" />
+          <entry key="py" value="16243" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="16135" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="16243" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -99,16 +98,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/appTestUI/app_test_UI.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="218" column="86" selection-start-line="218" selection-start-column="86" selection-end-line="218" selection-end-column="86" />
+            <state relative-caret-position="1900">
+              <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
-                <marker date="1542958851251" expanded="true" signature="570:794" ph="..." />
-                <marker date="1542958851251" expanded="true" signature="1812:2522" ph="..." />
-                <marker date="1542958851251" expanded="true" signature="5706:6345" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/appTestUI/app_recall_UI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+              <folding>
+                <element signature="e#16#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -206,6 +214,7 @@
       <find>command=lambda: self._ask_user_info(args=1</find>
       <find>_excute_command</find>
       <find>button4</find>
+      <find>open</find>
     </findStrings>
     <replaceStrings>
       <replace>anchor=CENTER</replace>
@@ -221,6 +230,7 @@
       <replace>pygame</replace>
       <replace>row_button4</replace>
       <replace>atart</replace>
+      <replace>recall</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -240,6 +250,8 @@
         <option value="$PROJECT_DIR$/adb_commnd.py" />
         <option value="$PROJECT_DIR$/appTestUI/AppNames.txt" />
         <option value="$PROJECT_DIR$/appTestUI/app_test_UI.py" />
+        <option value="$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py" />
+        <option value="$PROJECT_DIR$/appTestUI/app_recall_UI.py" />
       </list>
     </option>
   </component>
@@ -292,7 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app_test_UI">
+  <component name="RunManager" selected="Python.app_recall_UI">
     <configuration name="adb_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AdbTestUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -314,7 +326,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="adb_commnd" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="app_launch-quit_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AdbTestUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -322,11 +334,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/appTestUI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/adb_commnd.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -335,7 +347,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="adb_dialog" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="app_recall_UI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AdbTestUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -343,11 +355,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/appTestUI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/adb_dialog.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/appTestUI/app_recall_UI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -368,7 +380,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/appTestUI/app_test_UI.py" />
+      <option name="SCRIPT_NAME" value="G:\Internship_Qiaoyi\AdbTestUI\appTestUI\app_launch-quit_UI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -400,18 +412,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.adb_UI" />
-      <item itemvalue="Python.adb_dialog" />
-      <item itemvalue="Python.adb_commnd" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.app_test_UI" />
+      <item itemvalue="Python.app_launch-quit_UI" />
+      <item itemvalue="Python.app_recall_UI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app_recall_UI" />
+        <item itemvalue="Python.app_launch-quit_UI" />
         <item itemvalue="Python.app_test_UI" />
         <item itemvalue="Python.adb_UI" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.adb_commnd" />
-        <item itemvalue="Python.adb_dialog" />
       </list>
     </recent_temporary>
   </component>
@@ -486,32 +498,32 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>216</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>212</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>243</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>245</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>248</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/appTestUI/app_test_UI.py</url>
+          <url>file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py</url>
           <line>214</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -599,15 +611,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appTestUI/app_test_UI.py">
+    <entry file="file://$PROJECT_DIR$/appTestUI/app_launch-quit_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="218" column="86" selection-start-line="218" selection-start-column="86" selection-end-line="218" selection-end-column="86" />
+        <state relative-caret-position="1900">
+          <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
           <folding>
             <element signature="e#16#37#0" expanded="true" />
-            <marker date="1542958851251" expanded="true" signature="570:794" ph="..." />
-            <marker date="1542958851251" expanded="true" signature="1812:2522" ph="..." />
-            <marker date="1542958851251" expanded="true" signature="5706:6345" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appTestUI/app_recall_UI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+          <folding>
+            <element signature="e#16#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

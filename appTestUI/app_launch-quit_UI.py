@@ -13,7 +13,7 @@ import traceback
 
 MIN_TIME_INTERVAL=2
 
-class AppTestUI:
+class AppLaunchQuitTestUI:
 
     # Initilize main window, with the resizeable width and height
     def __init__(self):
@@ -259,4 +259,4 @@ class AppTestUI:
 
 
 if __name__ == '__main__':
-    app_test_UI = AppTestUI()
+    app_launch_quit_test_UI = AppLaunchQuitTestUI()
