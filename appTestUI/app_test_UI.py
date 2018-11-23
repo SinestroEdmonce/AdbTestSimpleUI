@@ -3,12 +3,12 @@
 from Tkinter import *
 import ttk
 
+import sys
+sys.path.append(r'../')
 from customized_error import *
 
-from adb_commnd import *
 import subprocess
 
-import sys
 import traceback
 
 
